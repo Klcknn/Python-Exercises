@@ -14,10 +14,11 @@ print(name_of_person_1)
 
          
 
-
+# Define a class as a Person2
 class Person2:
+    # Define a constructor function
     def __init__(self,n,a):
-        self.name = n
+        self.name = n 
         self.age = a
 
 
