@@ -1,3 +1,4 @@
+""" 
 # My preliminary notes about Class ( OOP class ):
 
 # Define a class 
@@ -60,5 +61,39 @@ shape = Shape(3,4,5)
 return_value_to_us = shape.calculate()
 shape.write(return_value_to_us)
 
+"""
 
 
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def falls_in_rectangle(self, lowleft, upright):
+        if lowleft[0] < self.x < upright[0] and lowleft[1] < self.y < upright[1] :
+            return True
+        else:
+            return False
+    def distance_from_points(self, x, y):
+        return ( (self.x - x )**2 + (self.y - y )**2 )**0.5 
+    
+point = Point(1,1)
+value= point.distance_from_points(3,3)
+print(value)
+
+class Point_2:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def falls_in_rectangle(self, lowleft, upright):
+        if lowleft[0] < self.x < upright[0] and lowleft[1] < self.y < upright[1] :
+            return True
+        else:
+            return False
+    def distance_from_points(self, point):
+        return ((self.x - point.x )**2 + (self.y - point.y)**2)**0.5 
+    
+point_2 = Point_2(1,1)
+point_3 = Point_2(3,3)
+value_2= point_2.distance_from_points(point_3)
+print(value_2)
