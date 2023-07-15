@@ -71,7 +71,7 @@ shape.write(return_value_to_us)
 """
 
 
-
+from random import randint
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -84,19 +84,33 @@ class Point:
     def distance_from_points(self, x, y):
         return ( (self.x - x )**2 + (self.y - y )**2 )**0.5 
 
-"""    
-point = Point(1,1)
-value= point.distance_from_points(3,3)
-print(value)
-"""
 class Rectangle:
     def __init__(self, lowleft, upright):
         self.lowleft = lowleft
         self.upright = upright
 
+    def area(self):
+        return ( (self.upright.x - self.lowleft.x) * (self.upright.y - self.lowleft.y) )
+
+
+
+rectangle = Rectangle( Point(randint(0,9), randint(0,9)), Point(randint(10,19), randint(10,19)) )
+print("Rectangle Coordinates: ", rectangle.lowleft.x, ",", rectangle.lowleft.y, "and", rectangle.upright.x, ",", rectangle.upright.y)
+x_point = float(input("Enter guess X point: "))
+y_point = float(input("Enter guess Y point: "))
+user_point = Point(x_point, y_point)
+user_area = float(input("Enter guess rectangle area: "))
+print("Your point was inside the rectangle: ", user_point.falls_in_rectangle(rectangle))
+print("Your rectangle area was off by: ", rectangle.area() - user_area)
+
+
+"""    
+point = Point(1,1)
+value= point.distance_from_points(3,3)
+print(value)
 point_x = Point(8,9)
 rectangle_x = Rectangle(Point(5,6), Point(7,9))
-point_x.falls_in_rectangle(rectangle_x)
+point_x.falls_in_rectangle(rectangle_x) """
 
 
 """ 
