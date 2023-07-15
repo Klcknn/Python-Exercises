@@ -29,11 +29,18 @@ print(name_of_person_2,age_of_person_2)
 class House:
     def __init__(self, wall_area):
         self.wall_area = wall_area
+    def paint_needed(self):
+        return self.wall_area*2.5
            
 class Paint:
     def __init__(self,buckets,colors):
         self.buckets = buckets
         self.colors = colors
+    def total_prices(self):
+        if self.colors == 'white':
+            return self.buckets*2
+        else:
+            return self.buckets*3
     
 class Shape:
     # define a constructor function
@@ -69,18 +76,30 @@ class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    def falls_in_rectangle(self, lowleft, upright):
-        if lowleft[0] < self.x < upright[0] and lowleft[1] < self.y < upright[1] :
+    def falls_in_rectangle(self, rectangle):
+        if rectangle.lowleft.x < self.x < rectangle.upright.x and rectangle.lowleft.y < self.y < rectangle.upright.y :
             return True
         else:
             return False
     def distance_from_points(self, x, y):
         return ( (self.x - x )**2 + (self.y - y )**2 )**0.5 
-    
+
+"""    
 point = Point(1,1)
 value= point.distance_from_points(3,3)
 print(value)
+"""
+class Rectangle:
+    def __init__(self, lowleft, upright):
+        self.lowleft = lowleft
+        self.upright = upright
 
+point_x = Point(8,9)
+rectangle_x = Rectangle(Point(5,6), Point(7,9))
+point_x.falls_in_rectangle(rectangle_x)
+
+
+""" 
 class Point_2:
     def __init__(self, x, y):
         self.x = x
@@ -96,4 +115,5 @@ class Point_2:
 point_2 = Point_2(1,1)
 point_3 = Point_2(3,3)
 value_2= point_2.distance_from_points(point_3)
-print(value_2)
+print(value_2) 
+"""
