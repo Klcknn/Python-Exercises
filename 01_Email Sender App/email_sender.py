@@ -1,27 +1,35 @@
-from email.message import EmailMessage  
-from app2 import password
-import ssl
-import smtplib
+import ssl, smtplib
 
-email_sender = "kenanklc.76@gmail.com"
-email_pasword = password
-email_receiver = "derenol346@nmaller.com"
-subject = "Herhangi bir başlık giriniz..."
-body = """
-    İçerik kısmını giriniz.
+smtp_port = 587  # Standart SMTP port değeri
+smtp_server =  "smtp.gmail.com"  # Google SMTP Server adresi
 
-"""
+email_from = "kenanklc.76@gmail.com"
+email_to = "kenanklc.76@gmail.com"
+password = "bcyyrzxwffrjjzrm"  # Kendi Google Hesabımızın Güvenlik bölümünün altından Uygulama Şifreleri başlığı altında yeni bir uygulama şifresini oluşturuyoruz ve oluşturmuş olduğumuz uygulama şifresini kopyalayıp buraya yapıştırıyoruz. 
 
-email = EmailMessage()
-email["From"] = email_sender
-email["To"] = email_receiver
-email["subject"] = subject
-email.set_content(body)
+message = "Mesaj içeriğini bu kısma giriniz. "    # mesajın içeriği 
+email_context = ssl.create_default_context()
 
-context = ssl.create_default_context()
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as smtp:
-    smtp.login(email_sender, email_pasword)
-    smtp.sendmail(email_sender, email_receiver, email.as_string())
+try:
+    print("Connecting to SMTP server...")
+    TIE_server = smtplib.SMTP(smtp_server, smtp_port)
+    TIE_server.starttls(context=email_context)
+    TIE_server.login(email_from, password)
+    print("Connected to SMTP server...")
+
+    print("****************************")
+    print( f"Sending email to - {email_to}" )
+    TIE_server.sendmail(email_from, email_to, message)
+    print( f"Email successfully sent to - {email_to}" )
+
+except Exception as e:
+    print(e)
+
+finally:
+    TIE_server.quit()
+
+
+
 
 
 
