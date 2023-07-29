@@ -149,5 +149,5 @@
       '  Python  '.rstrip("hon")  # >>> 'Pyt'
     ```
     ```bash
-      'Python       '.rstrip()  #  >>> 'Python' Sağdan bulunan boşluk karakterlerini ortaan kaldırır.
+      'Python       '.rstrip()  #  >>> 'Python' Sağda bulunan boşluk karakterlerini ortadan kaldırır.
     ```
