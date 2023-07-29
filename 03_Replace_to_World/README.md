@@ -1,0 +1,2 @@
+### isalpha() isnumreic() Kullanımı:
+
