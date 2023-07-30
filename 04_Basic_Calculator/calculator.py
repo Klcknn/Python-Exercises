@@ -3,11 +3,11 @@ class Calculator:
         self.a = a
         self.b = b
     
-    def add(self):
+    def addition(self):
         self.result = self.a + self.b
         return self.result
     
-    def sub(self):
+    def subraction(self):
         if self.a == self.b:
             self.result = self.a - self.b
             return self.result
@@ -38,14 +38,14 @@ if girilen_islem == "+":
     value_1 = int(input("Birinci değeri giriniz:"))
     value_2 = int(input("İkinci değeri giriniz:"))
     calculator_obje = Calculator(value_1, value_2)
-    toplama_degeri=calculator_obje.add()
+    toplama_degeri=calculator_obje.addition()
     calculator_obje.print_states(toplama_degeri)
 elif girilen_islem == "-":
     print("Çıkartma işlemi yapmak istediğiniz iki değeri giriniz:  ")
     value_1 = int(input("Birinci değeri giriniz:"))
     value_2 = int(input("İkinci değeri giriniz:"))
     calculator_obje = Calculator(value_1, value_2)
-    cikarma_degeri=calculator_obje.sub()
+    cikarma_degeri=calculator_obje.subraction()
     calculator_obje.print_states(cikarma_degeri)
 elif girilen_islem == "*":
     print("Çarpma işlemi yapmak istediğiniz iki değeri giriniz:  ")
